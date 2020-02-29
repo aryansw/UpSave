@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
-using Newtonsoft.Json;
 
 namespace UpSave.Our_Scripts
 {
@@ -15,21 +14,49 @@ namespace UpSave.Our_Scripts
         public Dictionary<string, string> Address { get; set; }
 
         public Customer(string json)
-        {   
+        {
             Customer customer = new JavaScriptSerializer().Deserialize<Customer>(json);
-            this.LastName=customer.LastName;
-            this.FirstName=customer.FirstName;
-            this.Id=customer.Id;
-            this.Address=customer.Address;
-            System.Diagnostics.Debug.WriteLine(customer.Address);
+            this.LastName = customer.LastName;
+            this.FirstName = customer.FirstName;
+            this.Id = customer.Id;
+            this.Address = customer.Address;
+
         }
+        public static Customer[] Generate(List<string> y)
+        {
+            int l = 0;
+            Customer[] a = new Customer[y.Count];
+            foreach (string i in y)
+            {
+                a[l] = new Customer(json: i);
+                l++;
+            }
+            return a;
+        }
+
+        public Customer(Customer customer)
+        {
+            this.LastName = customer.LastName;
+            this.FirstName = customer.FirstName;
+            this.Id = customer.Id;
+            this.Address = customer.Address;
+        }
+
         public Customer()
         {
-            this.FirstName = "broky";
+            this.FirstName = "NaNOAs";
+            this.LastName = "barrak";
             this.Id = "sid";
-
-
+            this.Address = new Dictionary<string, string>()
+            {
+                {"street_number","nil" },
+                {"street_name","potato"},
+                {"city","manhattan" },
+                {"state", "FU"},
+                {"zip","string" }
+            };
+            
         }
-
+        
     }
 }

@@ -9,7 +9,7 @@ namespace UpSave
     {
         //string name;
         //string category;
-
+        public string _id;
         //name
         public string name;
         public string GetName()
@@ -63,7 +63,6 @@ namespace UpSave
             this.setAddress(merchant.getAddress());
             this.setCategory(merchant.getCategory());
             this.setGeocode(merchant.getGeocode());
-
         }
     }
 }
