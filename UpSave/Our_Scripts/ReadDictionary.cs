@@ -8,6 +8,7 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using UpSave.Our_Scripts;
 
 namespace UpSave
 {
@@ -29,10 +30,16 @@ namespace UpSave
             }
 
             System.Diagnostics.Debug.WriteLine(jsonArrayString);
-            string jsonString = jsonArrayString.Substring(1, jsonArrayString.Length - 2);
+            string jsonString = jsonArrayString.Substring(1, 197);
             System.Diagnostics.Debug.WriteLine(jsonString);
            
             return jsonString;
+        }
+
+        public static void Main()
+        {
+            Customer customer = new Customer(json: readCustomerDictionary());
+            System.Diagnostics.Debug.WriteLine(customer.Getid());
         }
     }
 }

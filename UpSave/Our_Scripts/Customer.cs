@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Newtonsoft.Json;
-using System.Web.Script;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace UpSave.Our_Scripts
 {
@@ -13,24 +12,24 @@ namespace UpSave.Our_Scripts
         private string id;
         private string firstName;
 
-        private string GetFirstName()
+        public string GetFirstName()
         {
             return firstName;
         }
 
-        private void SetFirstName(string value)
+        public void SetFirstName(string value)
         {
             firstName = value;
         }
 
         private string lastName;
 
-        private string GetLastName()
+        public string GetLastName()
         {
             return lastName;
         }
 
-        private void SetLastName(string value)
+        public void SetLastName(string value)
         {
             lastName = value;
         }
@@ -45,7 +44,12 @@ namespace UpSave.Our_Scripts
             this.Setid(customer.Getid());
             this.ChangeAddress(customer.getAddress());
         }
-        
+        public Customer()
+        {
+            this.SetFirstName("broky");
+            this.Setid("sid");
+
+        }
         public string Getid()
         {
             return id;
