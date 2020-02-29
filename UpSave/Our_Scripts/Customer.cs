@@ -53,6 +53,7 @@ namespace UpSave.Our_Scripts
                 {"street_number","nil" },
                 {"street_name","potato"},
                 {"city","manhattan" },
+                {"state", "FU"},
                 {"zip","string" }
             };
             
