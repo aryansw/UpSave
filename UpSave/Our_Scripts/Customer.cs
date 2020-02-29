@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Script.Serialization;
 
 namespace UpSave.Our_Scripts
-{//Hei
+{
     public class Customer
     {
         public string Id { get; set; }
@@ -52,6 +52,7 @@ namespace UpSave.Our_Scripts
                 {"street_number","nil" },
                 {"street_name","potato"},
                 {"city","manhattan" },
+                {"state", "FU"},
                 {"zip","string" }
             };
             
