@@ -23,7 +23,7 @@ namespace UpSave.Our_Scripts
             this.Address = customer.Address;
 
         }
-        public Customer[] Genrate(List<string> y)
+        public static Customer[] Generate(List<string> y)
         {
             int l = 0;
             Customer[] a = new Customer[y.Count];

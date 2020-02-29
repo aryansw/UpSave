@@ -12,7 +12,7 @@ using UpSave.Our_Scripts;
 
 namespace UpSave
 {
-    public class ReadDictionary
+    public class ReadCustomerDictionary
     {
 
         public static List<string> readCustomerDictionary()
