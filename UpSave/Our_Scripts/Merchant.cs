@@ -63,7 +63,6 @@ namespace UpSave
             this.setAddress(merchant.getAddress());
             this.setCategory(merchant.getCategory());
             this.setGeocode(merchant.getGeocode());
-
         }
     }
 }

@@ -14,7 +14,7 @@ namespace UpSave
 {
     public class ReadDictionary
     {
-        public static string readCustomerDictionary()
+        public static List<string> readCustomerDictionary()
         {
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/customers?key=2576f38896155fd18751261143cff4c4"));
             webRequest.Method = "GET";
@@ -30,16 +30,50 @@ namespace UpSave
             }
 
             System.Diagnostics.Debug.WriteLine(jsonArrayString);
-            string jsonString = jsonArrayString.Substring(1, 197);
-            System.Diagnostics.Debug.WriteLine(jsonString);
-           
-            return jsonString;
+            jsonArrayString = jsonArrayString.Substring(1, jsonArrayString.Length - 1);
+            char[] charArray = new char[jsonArrayString.Length];
+            List<string> jsonStrings = new List<string>();
+            int flag = 0;
+            string eachString = "";
+            for (int i = 0; i < jsonArrayString.Length; i++)
+            {
+                char c = charArray[i];
+                if (c == '{')
+                {
+                    if (flag != 0)
+                    {
+                        charArray[i] = c;
+                    }
+                    flag++;
+                }
+                else if (c == '}')
+                {
+                    flag--;
+                    if (flag != 0)
+                    {
+                        charArray[i] = c;
+                    }
+                    for (int j = 0; j < charArray.Length; j++)
+                    {
+                        eachString += charArray[j];
+                        charArray[j] = ' ';
+                    }
+                    jsonStrings.Add(eachString);
+                    eachString = "";
+                }
+                else
+                {
+                    charArray[i] = c;
+                }
+            }
+            System.Diagnostics.Debug.WriteLine(jsonStrings);
+            return jsonStrings;
         }
 
-        public static void Main()
+        /*public static void Main()
         {
-            Customer customer = new Customer(json: readCustomerDictionary());
+            Customer customer = new Customer(readCustomerDictionary());
             System.Diagnostics.Debug.WriteLine(customer.Getid());
-        }
+        }*/
     }
 }
