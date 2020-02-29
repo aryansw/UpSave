@@ -45,7 +45,7 @@ namespace UpSave.Our_Scripts
         public static List<Customer_Data> ReadAllCustomers()
         {
             ConnectToDataBase();
-            var response = GetData("Customers");
+            var  response = GetData("Customers");
             object json = JsonConvert.DeserializeObject(response.Body);
             List<Customer_Data> customers = new List<Customer_Data>();
             foreach (JToken item in ((JToken)(json)).Children())

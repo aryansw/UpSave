@@ -9,9 +9,9 @@ namespace UpSave
 {
     public partial class _Default : Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender)
         {
-            ReadDictionary.readCustomerDictionary();
+            ReadCustomerDictionary.readCustomerDictionary();
         }
     }
 }
