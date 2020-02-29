@@ -23,19 +23,19 @@ namespace UpSave.Our_Scripts
             this.Address = customer.Address;
 
         }
-        public Customer(List<string> x)
-        { int l = 0;
-            Customer a = new Customer[x.Count];
-            foreach (string i in x) 
-            { 
-                a[l] = new Customer(i);
+        public Customer[] Genrate(List<string> y)
+        {
+            int l = 0;
+            Customer[] a = new Customer[y.Count];
+            foreach (string i in y)
+            {
+                a[l] = new Customer(json: i);
                 l++;
             }
             return a;
         }
-    
 
-        public Customer(Customer a)
+        public Customer(Customer customer)
         {
             this.LastName = customer.LastName;
             this.FirstName = customer.FirstName;

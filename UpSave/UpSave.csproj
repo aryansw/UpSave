@@ -269,6 +269,10 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Our_Scripts\Customer.cs" />
+    <Compile Include="Our_Scripts\Merchant.cs" />
+    <Compile Include="Our_Scripts\ReadDictionary.cs" />
+    <Compile Include="Our_Scripts\Withdrawal.cs" />
     <Compile Include="SignUpPage.aspx.cs">
       <DependentUpon>SignUpPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
