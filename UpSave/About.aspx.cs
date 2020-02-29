@@ -11,7 +11,11 @@ namespace UpSave
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            object read = ReadDictionary.readCustomerDictionary();
+            foreach(string input in read)
+            {
+                System.Diagnostics.Debug.WriteLine(input);
+            }
         }
     }
 }
