@@ -9,68 +9,27 @@ namespace UpSave.Our_Scripts
 {
     public class Customer
     {
-        private string id;
-        private string firstName;
-
-        public string GetFirstName()
-        {
-            return firstName;
-        }
-
-        public void SetFirstName(string value)
-        {
-            firstName = value;
-        }
-
-        private string lastName;
-
-        public string GetLastName()
-        {
-            return lastName;
-        }
-
-        public void SetLastName(string value)
-        {
-            lastName = value;
-        }
-
-        private Dictionary<string, string> address;
+        public string Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Dictionary<string, string> Address { get; set; }
 
         public Customer(string json)
-        {
+        {   
             Customer customer = new JavaScriptSerializer().Deserialize<Customer>(json);
-            this.SetLastName(customer.GetLastName());
-            this.SetFirstName(customer.GetFirstName());
-            this.Setid(customer.Getid());
-            this.ChangeAddress(customer.getAddress());
+            this.LastName=customer.LastName;
+            this.FirstName=customer.FirstName;
+            this.Id=customer.Id;
+            this.Address=customer.Address;
+            System.Diagnostics.Debug.WriteLine(customer.Address);
         }
         public Customer()
         {
-            this.SetFirstName("broky");
-            this.Setid("sid");
+            this.FirstName = "broky";
+            this.Id = "sid";
 
-        }
-        public string Getid()
-        {
-            return id;
 
         }
 
-        public string Setid(string a)
-        {
-            id = a;
-            return id;
-        }
-
-        public int ChangeAddress(Dictionary<string, string> a)
-        {
-            address = a;
-            return 1;
-        }
-
-        public Dictionary<string,string> getAddress()
-        {
-            return address;
-        }
     }
 }
