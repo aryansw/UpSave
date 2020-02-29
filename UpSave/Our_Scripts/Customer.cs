@@ -28,6 +28,7 @@ namespace UpSave.Our_Scripts
             this.FirstName = "broky";
             this.Id = "sid";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
@@ -40,6 +41,10 @@ namespace UpSave.Our_Scripts
             };
             
 >>>>>>> parent of ac69b44... Deposit class done
+=======
+
+
+>>>>>>> parent of cdc9ce9... Fixed Merge Conflict
         }
 
     }
