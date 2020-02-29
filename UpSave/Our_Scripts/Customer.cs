@@ -8,7 +8,6 @@ namespace UpSave.Our_Scripts
 {
     public class Customer
     {
-        public static JavaScriptSerializer serializer = new JavaScriptSerializer();
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,7 +15,7 @@ namespace UpSave.Our_Scripts
 
         public Customer(string json)
         {
-            Customer customer = serializer.Deserialize<Customer>(json);
+            Customer customer = new JavaScriptSerializer().Deserialize<Customer>(json);
             this.LastName = customer.LastName;
             this.FirstName = customer.FirstName;
             this.Id = customer.Id;

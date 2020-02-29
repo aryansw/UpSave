@@ -9,7 +9,7 @@ namespace UpSave
     {
         //string name;
         //string category;
-
+        public string _id;
         //name
         public string name;
         public string GetName()

@@ -7,12 +7,15 @@ namespace UpSave.Our_Scripts
 {
     public class Withdrawal
     {
+        public string _id;
 
-        public string medium;
-        public string transaction_date;
-        public string status;
-        public float amount;
-        public string description;
+        public string type;
+        public string transaction_date { get; set; }
+        public string status { get; set; }
+        public string payer_id{get;set; }
+        public string medium { get; set; }
+        public float amount { get; set; }
+        public string description { get; set; }
 
         public Withdrawal(string json)
         {
