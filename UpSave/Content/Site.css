@@ -11,6 +11,17 @@ body {
     padding-right: 15px;
 }
 
+.bg {
+    /* The image used */
+    background-image: url("https://www.krcomplexlit.com/wp-content/uploads/2017/08/GettyImages-114854649.jpgg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,

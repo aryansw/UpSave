@@ -14,7 +14,11 @@ namespace UpSave
 {
     public class ReadDictionary
     {
+<<<<<<< HEAD
         public static List<string> readCustomerDictionary()
+=======
+        public static string ReadCustomerDictionary()
+>>>>>>> 61f0b32fe65adaa3527841ce430fd2ccd5555fdc
         {
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/customers?key=2576f38896155fd18751261143cff4c4"));
             webRequest.Method = "GET";
@@ -72,8 +76,14 @@ namespace UpSave
 
         /*public static void Main()
         {
+<<<<<<< HEAD
             Customer customer = new Customer(readCustomerDictionary());
             System.Diagnostics.Debug.WriteLine(customer.Getid());
         }*/
+=======
+            Customer customer = new Customer(json: ReadCustomerDictionary());
+            System.Diagnostics.Debug.WriteLine(customer.Id);
+        }
+>>>>>>> 61f0b32fe65adaa3527841ce430fd2ccd5555fdc
     }
 }
