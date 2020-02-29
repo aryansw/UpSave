@@ -27,8 +27,19 @@ namespace UpSave.Our_Scripts
         {
             this.FirstName = "broky";
             this.Id = "sid";
+<<<<<<< HEAD
 
 
+=======
+            this.Address = new Dictionary<string, string>()
+            {
+                {"street_number","nil" },
+                {"street_name","potato"},
+                {"city","manhattan" },
+                {"zip","string" }
+            };
+            
+>>>>>>> parent of ac69b44... Deposit class done
         }
 
     }
