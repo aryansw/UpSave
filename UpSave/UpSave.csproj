@@ -185,6 +185,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Our_Scripts\Customer.cs" />
+    <Compile Include="Our_Scripts\Merchant.cs" />
     <Compile Include="Our_Scripts\ReadDictionary.cs" />
     <Compile Include="Our_Scripts\RequestHandling.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
