@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UpSave</RootNamespace>
     <AssemblyName>UpSave</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44396</IISExpressSSLPort>
@@ -26,7 +26,6 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>3.7</TypeScriptToolsVersion>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -278,9 +277,6 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Our_Scripts\Customer.cs" />
     <Compile Include="Our_Scripts\DatabaseIO.cs" />
@@ -293,12 +289,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Our_Scripts\Account.cs" />
-    <Compile Include="Our_Scripts\Customer.cs" />
-    <Compile Include="Our_Scripts\Deposit.cs" />
-    <Compile Include="Our_Scripts\Merchant.cs" />
-    <Compile Include="Our_Scripts\ReadDictionary.cs" />
-    <Compile Include="Our_Scripts\Withdrawal.cs" />
     <Compile Include="SignUpPage.aspx.cs">
       <DependentUpon>SignUpPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
