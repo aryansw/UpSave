@@ -42,6 +42,19 @@ namespace UpSave.Our_Scripts
             return null;
         }
 
+        public static Account GetAccount(string customer_id)
+        {
+            foreach (Account account in GetAccounts())
+            {
+                if (account.customer_id.Equals(customer_id))
+                {
+                    return account;
+                }
+            }
+            return null;
+        }
+
+
         public static Account[] GetAccounts()
         {
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(
