@@ -12,7 +12,7 @@
 
 <body class="text-center flex-grow-1">
     <h1 class="text-truncate text-capitalize text-center flex-row flex-grow-1 justify-content-center align-self-center" style="min-height: 55px;margin-top: 50px;">Expected Savings</h1>
-    <div class="container" style="margin: 100px 70 px;margin-top: 40px;">
+    <div class="container" style="margin: 100px 70px;margin-top: 40px;">
         <div class="row">
             <div class="col"><input class="custom-range" type="range" name="timeRange" value="10" min="1" max="60" step="1" style="margin-top: 20px;"></div>
             <div class="col">
