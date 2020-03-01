@@ -7,26 +7,34 @@ using Newtonsoft.Json;
 
 namespace UpSave.Our_Scripts
 {
+    public class Address
+    {
+        public string street_number { get; set; }
+        public string street_name { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public string zip { get; set; }
+    }
     public class Customer
     {
-        public string Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public Dictionary<string, string> Address { get; set; }
+        public string _id { get; set; }
+        public string first_name { get; set; }
+        public string last_name { get; set; }
+        public Address address { get; set; }
 
         public Customer(string json)
         {   
             Customer customer = new JavaScriptSerializer().Deserialize<Customer>(json);
-            this.LastName=customer.LastName;
-            this.FirstName=customer.FirstName;
-            this.Id=customer.Id;
-            this.Address=customer.Address;
-            System.Diagnostics.Debug.WriteLine(customer.Address);
+            this.last_name=customer.last_name;
+            this.first_name=customer.first_name;
+            this._id=customer._id;
+            this.address=customer.address;
+            System.Diagnostics.Debug.WriteLine(customer.address);
         }
         public Customer()
         {
-            this.FirstName = "broky";
-            this.Id = "sid";
+            this.first_name = "broky";
+            this._id = "sid";
 
 
         }

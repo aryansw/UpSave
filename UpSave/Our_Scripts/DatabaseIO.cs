@@ -26,8 +26,8 @@ namespace UpSave.Our_Scripts
         public static void WriteCustomer(String email, String pass, Customer customer)
         {
             ConnectToDataBase();
-            var new_customer = new Customer_Data{ username = email, password = pass, account_id = customer.Id };
-            FireBaseMethods.InsertData("Customers/" + customer.Id, new_customer);    
+            var new_customer = new Customer_Data{ username = email, password = pass, account_id = customer._id };
+            FireBaseMethods.InsertData("Customers/" + customer._id, new_customer);    
         }
 
         public static Customer_Data ReadCustomer(String account_id)
