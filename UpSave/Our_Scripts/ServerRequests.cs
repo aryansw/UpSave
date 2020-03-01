@@ -6,10 +6,57 @@ using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
+using System.Text;
 
 namespace UpSave.Our_Scripts
 {
     public class ServerRequests {
+        private static object httpWebRequest;
+
+        public class Customer_Writer
+        {
+            public string first_name { get; set; }
+            public string last_name { get; set; }
+            public Address address { get; set; }
+        }
+
+        public static string CreateCustomerString(Customer customer1)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            Customer_Writer customer = new Customer_Writer
+            {
+                first_name = customer1.first_name,
+                last_name = customer1.last_name,
+                address = customer1.address
+            };
+            return serializer.Serialize(customer);
+        }
+        public static void PutCustomer(Customer customer)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/customers?key=2576f38896155fd18751261143cff4c4"));
+            request.KeepAlive = false;
+            request.ProtocolVersion = HttpVersion.Version10;
+            request.Method = "POST";
+            
+            string json = CreateCustomerString(customer);
+            byte[] postBytes = Encoding.UTF8.GetBytes(json);
+
+            System.Diagnostics.Debug.WriteLine(json);
+            request.ContentType = "application/json; charset=UTF-8";
+            request.Accept = "application/json";
+            request.ContentLength = postBytes.Length;
+            Stream requestStream = request.GetRequestStream();
+            var streamWriter = new StreamWriter(requestStream);
+            streamWriter.Write(json);
+            streamWriter.Close();
+            var httpResponse = (HttpWebResponse)request.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                System.Diagnostics.Debug.WriteLine(result);
+            }
+        }
         public static Customer[] GetCustomers()
         {
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/customers?key=2576f38896155fd18751261143cff4c4"));
