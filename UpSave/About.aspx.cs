@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,7 +26,7 @@ namespace UpSave
                     zip = "47907"
                 }
             };
-            Our_Scripts.ServerRequests.PutCustomer(customer);
+            System.Diagnostics.Debug.WriteLine(Our_Scripts.ServerRequests.PutCustomer(customer));
         }
     }
 }

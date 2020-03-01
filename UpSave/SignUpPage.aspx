@@ -60,7 +60,7 @@
                         <div class="form-group text-center">
                             <button class="btn btn-primary" id="login_button" runat="server" onserverclick="SignUp_ServerClick"> Sign Up </button>
                         </div>
-                        <p class="text-center">Don't have an account?</p>
+                        <p class="text-center">Already have an account?</p>
                         <div class="form-group text-center">
                              <button class="btn btn-dark" id="SignUp" runat="server" onServerClick="login_button_ServerClick">Login</button>
                         </div>

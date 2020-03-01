@@ -12,8 +12,6 @@ using System.Text;
 namespace UpSave.Our_Scripts
 {
     public class ServerRequests {
-        private static object httpWebRequest;
-
         public class Customer_Writer
         {
             public string first_name { get; set; }
@@ -32,7 +30,7 @@ namespace UpSave.Our_Scripts
             };
             return serializer.Serialize(customer);
         }
-        public static void PutCustomer(Customer customer)
+        public static string PutCustomer(Customer customer)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/customers?key=2576f38896155fd18751261143cff4c4"));
             request.KeepAlive = false;
@@ -51,11 +49,26 @@ namespace UpSave.Our_Scripts
             streamWriter.Write(json);
             streamWriter.Close();
             var httpResponse = (HttpWebResponse)request.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            string result;
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream(), System.Text.Encoding.UTF8))
             {
-                var result = streamReader.ReadToEnd();
-                System.Diagnostics.Debug.WriteLine(result);
+                result = streamReader.ReadToEnd();
             }
+            object json1 = JsonConvert.DeserializeObject(result);
+            foreach (JToken item in ((JToken)(json1)).Children())
+            {
+                if (item.HasValues) { 
+                foreach (JToken a in ((JToken)(item)).Children()){
+                        try
+                        {
+                            String get_id = a.Last().ToObject<String>();
+                            return get_id;
+                        }
+                        catch (Exception) { }
+                }
+                }
+            }
+            return "";
         }
         public static Customer[] GetCustomers()
         {

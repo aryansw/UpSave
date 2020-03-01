@@ -36,8 +36,6 @@ namespace UpSave.Our_Scripts
             this.first_name = "broky";
             this._id = "sid";
 
-
         }
-
     }
 }
