@@ -28,13 +28,13 @@
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <div class="col"><input type="text" style="height: 50px;margin-top: 10px;" name="goalInput" placeholder="1" inputmode="numeric" minlength="1" maxlength="8"></div>
-                    <div class="col"><button class="btn btn-primary text-capitalize text-center" type="button" style="width: 190px;height: 75px;">Calculate</button></div>
+                    <div class="col">$ <input type="text" style="height: 50px;margin-top: 10px;" name="goalInput" id="goal_input" placeholder="1" inputmode="numeric" minlength="1" maxlength="8"></div>
+                    <div class="col"><button class="btn btn-primary text-capitalize text-center" type="button" onServerClick="get_suggestions" style="width: 190px;height: 75px;">Calculate</button></div>
                 </div>
             </div>
             <div class="col">
-                <h3 class="text-truncate text-capitalize text-center flex-row flex-grow-1 justify-content-center align-self-center" style="min-height: 0px;margin-top: 0px;">Possibilities</h3>
-                <p class="text-left">asdf<br>asdf<br>asd<br>asdsdas<br>asasdfasdfasdfasdf<br>asdfasdasgrraretaert<br>asdf asdfsdf<br>asdasd ladskajdagjdfgh&nbsp;<br>asdkjl ahsdlkfahdslk ahsd<br>askdjdgahslk hasdkjf s</p>
+                <h3 class="text-truncate text-capitalize text-right flex-row flex-grow-1 justify-content-right align-self-right" style="min-height: 0px;margin-top: 0px;">Possibilities</h3>
+                <p class="text-right">asdf<br>asdf<br>asd<br>asdsdas<br>asasdfasdfasdfasdf<br>asdfasdasgrraretaert<br>asdf asdfsdf<br>asdasd ladskajdagjdfgh&nbsp;<br>asdkjl ahsdlkfahdslk ahsd<br>askdjdgahslk hasdkjf s</p>
             </div>
         </div>
     </div>

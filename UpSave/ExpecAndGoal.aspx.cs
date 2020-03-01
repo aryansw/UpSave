@@ -19,5 +19,10 @@ namespace UpSave
             System.Diagnostics.Debug.WriteLine(time_range.Value);
             number.InnerText = time_range.Value;
         }
+
+        protected void get_suggestions(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
