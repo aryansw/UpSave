@@ -9,6 +9,18 @@ namespace UpSave.Our_Scripts
 {
     public class DatabaseIO : FireBaseMethods
     {
+        public static string Register(string email, string pass, Customer customer)
+        {
+            String account_id = ServerRequests.PutCustomer(customer);
+            if(account_id == "")
+            {
+                return "not_found";
+            }
+            customer._id = account_id;
+            WriteCustomer(email, pass, customer);
+            return account_id;
+        }
+
         public static string Login(string email, string pass)
         {
             foreach(Customer_Data customer in ReadAllCustomers())

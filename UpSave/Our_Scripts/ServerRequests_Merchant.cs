@@ -1,43 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Web;
-using System.Web.Script.Serialization;
+using System;
+using System.IO;
+using System.Net;
 using System.Text;
+using System.Web.Script.Serialization;
 
-namespace UpSave.Our_Scripts
+
+namespace UpSave
 {
-    public class ServerRequests {
-        public class Customer_Writer
-        {
-            public string first_name { get; set; }
-            public string last_name { get; set; }
-            public Address address { get; set; }
-        }
-
-        public static string CreateCustomerString(Customer customer1)
-        {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            Customer_Writer customer = new Customer_Writer
-            {
-                first_name = customer1.first_name,
-                last_name = customer1.last_name,
-                address = customer1.address
-            };
-            return serializer.Serialize(customer);
-        }
-        public static string PutCustomer(Customer customer)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/customers?key=2576f38896155fd18751261143cff4c4"));
+	public class Requests(){
+        public static string PutMerchant(Merchant merchant)
+        {   
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/merchants?key=2576f38896155fd18751261143cff4c4"));
             request.KeepAlive = false;
             request.ProtocolVersion = HttpVersion.Version10;
             request.Method = "POST";
 
-            string json = CreateCustomerString(customer);
+            string json = new JavaScriptSerializer().Serialize(merchant);
             byte[] postBytes = Encoding.UTF8.GetBytes(json);
 
             System.Diagnostics.Debug.WriteLine(json);
@@ -72,22 +52,9 @@ namespace UpSave.Our_Scripts
             }
             return "";
         }
-        public static Customer GetCustomer(string account_id)
-        {
-            var customers = GetCustomers();
-            foreach(Customer customer in customers)
-            {
-                if (customer._id.Equals(account_id))
-                {
-                    return customer;
-                }
-            }
-            return new Customer();
-        }
+        public static Merchant[] GetarrMerchants(){
 
-        public static Customer[] GetCustomers()
-        {
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/customers?key=2576f38896155fd18751261143cff4c4"));
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/merchants?key=2576f38896155fd18751261143cff4c4"));
             webRequest.Method = "GET";
             HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
             System.Diagnostics.Debug.WriteLine(webResponse.StatusCode);
@@ -106,9 +73,9 @@ namespace UpSave.Our_Scripts
             {
                 System.Diagnostics.Debug.WriteLine(item.ToString());
 
-                    Customer  customer = item.ToObject<Customer>();
-                    customers.Add(customer);
-                
+                Customer customer = item.ToObject<Customer>();
+                customers.Add(customer);
+
             }
             return customers.ToArray();
         }
