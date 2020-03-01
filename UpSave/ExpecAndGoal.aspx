@@ -9,13 +9,17 @@
             <div class="col">
                 <input class="custom-range" type="range" name="timeRange" runat="server" id="time_range" value="10" min="1" max="60" step="1" style="margin-top: 20px;"></div>
             <div class="col">
-                <h4 style="margin-top: 10px;" id="number" runat="server">Savings over _ months: 100$</h4>
-                <button class="btn btn-primary text-capitalize text-centerk" id="SignUp" runat="server" onServerClick="get_range_ServerClick">Sign Up</button>
+                <h4 style="margin-top: 10px;" id="approx" runat="server">Select a time range to get information</h4>
+                <button class="btn btn-primary text-capitalize text-centerk" id="Calculate_Savings" runat="server" onServerClick="get_range_ServerClick">Forecast Savings</button>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <h5>Range: $1-2<br>Likely: $-100</h5>
+                <h5 id ="Months" runat="server">Time Span: </h5>
+                <br />
+                <h5 id ="Range" runat="server">Range: </h5>
+                <br />
+                <h5 id ="Likely" runat="server">Likely: </h5>
             </div>
         </div>
     </div>

@@ -22,6 +22,9 @@
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><i class="fas fa-money-bill-wave"></i>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"><span>UPSave</span></form>
                     </div>
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><i class="fas fa-money-bill-wave"></i>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"><span><a href="ExpecAndGoal.aspx">Financial Planner</a></span></form>
+                    </div>
                 </nav>
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4">Profile</h3>

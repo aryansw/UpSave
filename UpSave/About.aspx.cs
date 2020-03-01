@@ -12,7 +12,7 @@ namespace UpSave
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Account.GetAccounts();
+            Payments.RetrievePayments("5e5bb4d0f1bac107157e0d40");
         }
     }
 }

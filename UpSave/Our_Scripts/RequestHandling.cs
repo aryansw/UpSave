@@ -7,17 +7,28 @@ namespace UpSave.Our_Scripts
 {
     public class RequestHandling
     {   
-        public float[] ExpectedSavings(float[] spending, float income, float CurrentSavings) 
+        public static decimal[] ExpectedSavings(decimal[] spending, decimal income, decimal CurrentSavings, int time) 
         {
-            float[] expectedSaving = new float[3];
+            decimal[] expectedSaving = new decimal[3];
             for (int i = 0; i < 3; i++) {
-                float saving = 12 * income - 12 * spending[i];
+                decimal saving = time * income - time * spending[i];
                 expectedSaving[i] = CurrentSavings + saving;
             }
 
             return expectedSaving;
         }
-        public Dictionary<string, float> Goals(Dictionary<string, float> lastMonth, Dictionary<string, float> spending, float income, float CurrentSavings, float goals) {
+
+        public static decimal[] DecToFloat(float[] a)
+        {
+            decimal[] b = new decimal[a.Length];
+            int count = 0;
+            foreach(float s in a)
+            {
+                b[count++] = (decimal)s;
+            }
+            return b;
+        }
+        public static Dictionary<string, float> Goals(Dictionary<string, float> lastMonth, Dictionary<string, float> spending, float income, float CurrentSavings, float goals) {
             Dictionary<string, float> PossibleSavers = new Dictionary<string, float>();
             //float[3] buffer;
             for (int i = 0; i < lastMonth.Count; i++) {
@@ -33,7 +44,7 @@ namespace UpSave.Our_Scripts
                     }
                 }
             }
-            float avgExpectedSavings = ExpectedSavings(spending.Values.ToArray(), income, CurrentSavings)[1];
+            float avgExpectedSavings = (float)decimal.ToDouble(ExpectedSavings(DecToFloat(spending.Values.ToArray()), (decimal)income, (decimal)CurrentSavings, 12)[1]);
             PossibleSavers = PossibleSavers.Keys.OrderBy(k => k).ToDictionary(k => k, k => PossibleSavers[k]); 
             return PossibleSavers;
         }
