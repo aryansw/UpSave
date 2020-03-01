@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyProfile.aspx.cs" Inherits="UpSave.MyProfile" %>
 
-<!DOCTYPE html>
 
 <!DOCTYPE html>
 <html>

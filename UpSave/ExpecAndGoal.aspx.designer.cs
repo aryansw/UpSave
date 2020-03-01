@@ -15,15 +15,6 @@ namespace UpSave
     {
 
         /// <summary>
-        /// time_range control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl time_range;
-
-        /// <summary>
         /// approx control.
         /// </summary>
         /// <remarks>
@@ -33,13 +24,13 @@ namespace UpSave
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl approx;
 
         /// <summary>
-        /// Calculate_Savings control.
+        /// time_range control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton Calculate_Savings;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl time_range;
 
         /// <summary>
         /// Months control.
@@ -67,5 +58,32 @@ namespace UpSave
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Likely;
+
+        /// <summary>
+        /// Calculate_Savings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton Calculate_Savings;
+
+        /// <summary>
+        /// number control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl number;
+
+        /// <summary>
+        /// button control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton button;
     }
 }
