@@ -22,10 +22,10 @@ namespace UpSave.Our_Scripts
             //float[3] buffer;
             for (int i = 0; i < lastMonth.Count; i++) {
                 for (int j = 0; j < spending.Count; j++) {
-                    string last = lastMonth.Keys.ElementAt<i>;
-                    string average = spending.Keys.ElementAt<j>;
+                    string last = lastMonth.Keys.ElementAt<string>(i);
+                    string average = spending.Keys.ElementAt<string>(j);
                     if (last.CompareTo(average) == 0 && (last.CompareTo("Dues") != 0)) {
-                        float difference = lastMonth.Values.ElementAt<i> - spending.Values.ElementAt<j>;
+                        float difference = lastMonth.Values.ElementAt<float>(i) - spending.Values.ElementAt<float>(j);
                         if (difference < 0) {
                             difference = difference * -1;
                         }
@@ -33,7 +33,7 @@ namespace UpSave.Our_Scripts
                     }
                 }
             }
-            float avgExpectedSavings = ExpectedSavings(spending.Values, income, CurrentSavings)[1];
+            float avgExpectedSavings = ExpectedSavings(spending.Values.ToArray(), income, CurrentSavings)[1];
             PossibleSavers = PossibleSavers.Keys.OrderBy(k => k).ToDictionary(k => k, k => PossibleSavers[k]); 
             return PossibleSavers;
         }
@@ -42,5 +42,4 @@ namespace UpSave.Our_Scripts
         }
 
         
-    }
-}   
+ }
