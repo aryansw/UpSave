@@ -278,6 +278,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Our_Scripts\Account.cs" />
     <Compile Include="Our_Scripts\ServerRequests.cs" />
     <Compile Include="Our_Scripts\Customer.cs" />
     <Compile Include="Our_Scripts\DatabaseIO.cs" />
