@@ -17,8 +17,8 @@ namespace UpSave
 
             DateTime current_time = DateTime.Now;
             cookie.Expires = current_time + new TimeSpan(0, 12, 0, 0);
-
             response.Cookies.Add(cookie);
+
         }
 
         public static void DeleteCookie(HttpRequest Request, HttpResponse Response)

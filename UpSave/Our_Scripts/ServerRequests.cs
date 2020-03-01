@@ -36,7 +36,7 @@ namespace UpSave.Our_Scripts
             request.KeepAlive = false;
             request.ProtocolVersion = HttpVersion.Version10;
             request.Method = "POST";
-            
+
             string json = CreateCustomerString(customer);
             byte[] postBytes = Encoding.UTF8.GetBytes(json);
 
@@ -57,19 +57,34 @@ namespace UpSave.Our_Scripts
             object json1 = JsonConvert.DeserializeObject(result);
             foreach (JToken item in ((JToken)(json1)).Children())
             {
-                if (item.HasValues) { 
-                foreach (JToken a in ((JToken)(item)).Children()){
+                if (item.HasValues)
+                {
+                    foreach (JToken a in ((JToken)(item)).Children())
+                    {
                         try
                         {
                             String get_id = a.Last().ToObject<String>();
                             return get_id;
                         }
                         catch (Exception) { }
-                }
+                    }
                 }
             }
             return "";
         }
+        public static Customer GetCustomer(string account_id)
+        {
+            var customers = GetCustomers();
+            foreach(Customer customer in customers)
+            {
+                if (customer._id.Equals(account_id))
+                {
+                    return customer;
+                }
+            }
+            return new Customer();
+        }
+
         public static Customer[] GetCustomers()
         {
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(string.Format("http://api.reimaginebanking.com/customers?key=2576f38896155fd18751261143cff4c4"));

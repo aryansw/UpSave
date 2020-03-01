@@ -32,6 +32,7 @@ namespace UpSave
             {
                 Error_Flag.Visible = false;
                 Cookies.WriteCookie(account_id, this.Response);
+                Response.Redirect("MyProfile.aspx");
             }
         }
 
