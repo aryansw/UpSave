@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <div class="col">$ <input type="text" style="height: 50px;margin-top: 10px;" name="goalInput" id="goal_input" placeholder="1" inputmode="numeric" minlength="1" maxlength="8"></div>
+                    <div class="col">$ <input type="text" style="height: 50px;margin-top: 10px;" name="goalInput" id="goal_input" runat="server" placeholder="1" inputmode="numeric" minlength="1" maxlength="8"></div>
                     <div class="col"><button class="btn btn-primary text-capitalize text-center" type="button" onServerClick="get_suggestions" style="width: 190px;height: 75px;">Calculate</button></div>
                 </div>
             </div>

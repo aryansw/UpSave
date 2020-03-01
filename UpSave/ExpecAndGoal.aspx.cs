@@ -32,7 +32,7 @@ namespace UpSave
 
         protected void get_suggestions(object sender, EventArgs e)
         {
-            
+            int goal = int.Parse(goal_input.Value);
         }
     }
 }
