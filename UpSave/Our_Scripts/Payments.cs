@@ -49,5 +49,28 @@ namespace UpSave
             }
             return payment.ToArray();
         }
-    }
+        int func()
+        {
+
+
+            decimal[] spending(List<Payments> a)
+            { decimal* a = new decimal[6];
+                foreach(L in range(6)){
+                    spending[a] = 0;
+                }
+                foreach (decimal x in a)
+
+                {
+                    if (x.lowercase == "entertainment") spending[0] += x.amount;
+                    if (x.lowercase == "outing") spending[1] += x.amount;
+                    if (x.lowercase == "shopping") spending[2] += x.amount;
+                    if (x.lowercase == "transport") spending[3] += x.amount;
+                    if (x.lowercase == "grocery") spending[4] += x.amount;
+                    if (x.lowercase == "dues") spending[5] += x.amount;
+
+
+                }
+                return a[];
+            }
+        } }
 }
