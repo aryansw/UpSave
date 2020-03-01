@@ -7,72 +7,39 @@ namespace UpSave.Our_Scripts
 {
     public class RequestHandling
     {   
-        static private Dictionary<string, decimal> avgMonthExpenses = new Dictionary<string, decimal>();
-        static private Dictionary<string, decimal> amountPerMonth = new Dictionary<string, decimal>();
-        static private Dictionary<string, decimal> dues = new Dictionary<string, decimal>();
-        static private Dictionary<string, decimal> possibleSavings = new Dictionary<string, decimal>();
-        static private decimal goals = new decimal();
-        static private decimal CurrentSavings = new decimal();
-        static private decimal Income = new decimal();
-
-
-        public Dictionary<string, Decimal> SetavgMonthExpenses( Dictionary<string, decimal> a )
+        public float[] ExpectedSavings(float[] spending, float income, float CurrentSavings) 
         {
-            avgMonthExpenses = a;
-            return avgMonthExpenses;
+            float[] expectedSaving = new float[3];
+            for (int i = 0; i < 3; i++) {
+                float saving = 12 * income - 12 * spending[i];
+                expectedSaving[i] = CurrentSavings + saving;
+            }
+
+            return expectedSaving;
+        }
+        public Dictionary<string, float> Goals(Dictionary<string, float> lastMonth, Dictionary<string, float> spending, float income, float CurrentSavings, float goals) {
+            Dictionary<string, float> PossibleSavers = new Dictionary<string, float>();
+            //float[3] buffer;
+            for (int i = 0; i < lastMonth.Count; i++) {
+                for (int j = 0; j < spending.Count; j++) {
+                    string last = lastMonth.Keys.ElementAt<string>(i);
+                    string average = spending.Keys.ElementAt<string>(j);
+                    if (last.CompareTo(average) == 0 && (last.CompareTo("Dues") != 0)) {
+                        float difference = lastMonth.Values.ElementAt<float>(i) - spending.Values.ElementAt<float>(j);
+                        if (difference < 0) {
+                            difference = difference * -1;
+                        }
+                        PossibleSavers.Add(last, difference);
+                    }
+                }
+            }
+            float avgExpectedSavings = ExpectedSavings(spending.Values.ToArray(), income, CurrentSavings)[1];
+            PossibleSavers = PossibleSavers.Keys.OrderBy(k => k).ToDictionary(k => k, k => PossibleSavers[k]); 
+            return PossibleSavers;
         }
 
-        public Dictionary<string, decimal> GetavgMonthExpenses => avgMonthExpenses;
 
-        public Dictionary<string, decimal> GetamountPerMonth() => amountPerMonth;
-
-        public Dictionary<string, Decimal> SetAmountPerMonth(Dictionary<string, decimal> b)
-        {
-            amountPerMonth = b;
-            return amountPerMonth;
         }
-
-        public Dictionary<string, Decimal> SetDues(Dictionary<string, decimal> a)
-        {
-            dues = a;
-            return dues;
-        }
-
-        public Dictionary<string, decimal> GetDues => dues;
-
-        public Dictionary<string, decimal> GetPossibleSavings() => amountPerMonth;
-
-        public Dictionary<string, decimal> SetPossibleSavings(Dictionary<string, decimal> b)
-        {
-            possibleSavings = b;
-            return possibleSavings;
-        }
-
-        public decimal SetGoals(decimal c)
-        {
-            goals = c;
-            return goals;
-        }
-
-        public decimal GetGoals() => goals;
-
-        public decimal SetCurrentSavings(decimal c)
-        {
-            CurrentSavings = c;
-            return CurrentSavings;
-        }
-
-        public decimal GetCurrentSavings() => CurrentSavings;
-
-        public decimal SetIncome(decimal c)
-        {
-            Income = c;
-            return Income;
-        }
-
-        public decimal GetIncome() => Income;
 
         
-        
-    }
-}   
+ }
