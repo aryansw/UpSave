@@ -30,10 +30,22 @@ namespace UpSave.Our_Scripts
             this.customer_id = "15293";
         }
 
+        public static string GetAccountID(string customer_id)
+        {
+            foreach(Account account in GetAccounts())
+            {
+                if (account.customer_id.Equals(customer_id))
+                {
+                    return account._id;
+                }
+            }
+            return null;
+        }
+
         public static Account[] GetAccounts()
         {
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(
-                string.Format("http://api.reimaginebanking.com/accounts?type=Checking&key=2576f38896155fd18751261143cff4c4"));
+                string.Format("http://api.reimaginebanking.com/accounts?key=2576f38896155fd18751261143cff4c4"));
             webRequest.Method = "GET";
             HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
             System.Diagnostics.Debug.WriteLine(webResponse.StatusCode);

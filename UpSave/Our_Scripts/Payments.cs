@@ -37,40 +37,38 @@ namespace UpSave
                 jsonArrayString = reader.ReadToEnd();
             }
             System.Diagnostics.Debug.WriteLine(jsonArrayString);
-            object json = JsonConvert.DeserializeObject(payment);
-            List<Payments> payment = new List<Payments>();
+            object json = JsonConvert.DeserializeObject(jsonArrayString);
+            List<Payments> payments = new List<Payments>();
             foreach (JToken item in ((JToken)(json)).Children())
             {
                 System.Diagnostics.Debug.WriteLine(item.ToString());
 
                 Payments payment = item.ToObject<Payments>();
-                payment.Add(Payments);
+                payments.Add(payment);
 
             }
-            return payment.ToArray();
+            return payments.ToArray();
         }
-        int func()
-        {
 
 
-            decimal[] spending(List<Payments> a)
-            { decimal* a = new decimal[6];
-                foreach(L in range(6)){
-                    spending[a] = 0;
+            decimal[] spending(string str)
+            {
+            var a = RetrievePayments(str);
+                decimal[] spending = new decimal[6];
+            foreach (int L in new int[]{0,1,2,3,4,5}){
+                    spending[L] = 0;
                 }
-                foreach (decimal x in a)
-
+                foreach (Payments x in a)
                 {
-                    if (x.lowercase == "entertainment") spending[0] += x.amount;
-                    if (x.lowercase == "outing") spending[1] += x.amount;
-                    if (x.lowercase == "shopping") spending[2] += x.amount;
-                    if (x.lowercase == "transport") spending[3] += x.amount;
-                    if (x.lowercase == "grocery") spending[4] += x.amount;
-                    if (x.lowercase == "dues") spending[5] += x.amount;
+                    if (x.description.ToLower() == "entertainment") spending[0] += x.amount;
+                    if (x.description.ToLower() == "outing") spending[1] += x.amount;
+                    if (x.description.ToLower() == "shopping") spending[2] += x.amount;
+                    if (x.description.ToLower() == "transport") spending[3] += x.amount;
+                    if (x.description.ToLower() == "grocery") spending[4] += x.amount;
+                    if (x.description.ToLower() == "dues") spending[5] += x.amount;
 
 
                 }
-                return a[];
-            }
+                return spending;
         } }
 }

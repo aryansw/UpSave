@@ -1,31 +1,29 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExpecAndGoal.aspx.cs" Inherits="UpSave.WebForm1" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ExpecAndGoal.aspx.cs" Inherits="UpSave.ExpecAndGoal" %>
 
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>ExpectationsAndGoals</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-</head>
-
-<body class="text-center flex-grow-1">
-    <h1 class="text-truncate text-capitalize text-center flex-row flex-grow-1 justify-content-center align-self-center" style="min-height: 55px;margin-top: 50px;">Expected Savings</h1>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<body>
+    <h1 class="text-truncate text-capitalize text-center flex-row flex-grow-1 justify-content-center align-self-center" style="min-height: 55px;margin-top: 50px;">Savings Calculator</h1>
     <div class="container" style="margin: 100px 70px;margin-top: 40px;">
         <div class="row">
-            <div class="col"><input class="custom-range" type="range" name="timeRange" value="10" min="1" max="60" step="1" style="margin-top: 20px;"></div>
             <div class="col">
-                <h4 style="margin-top: 10px;">Slider Value</h4>
+                <input class="custom-range" type="range" name="timeRange" runat="server" id="time_range" value="10" min="1" max="60" step="1" style="margin-top: 20px;"></div>
+            <div class="col">
+                <h4 style="margin-top: 10px;" id="number" runat="server">Savings over _ months: 100$</h4>
+                <button class="btn btn-primary text-capitalize text-centerk" id="SignUp" runat="server" onServerClick="get_range_ServerClick">Sign Up</button>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <h3>Range: $1-2<br>Likely: $-100</h3>
+                <h5>Range: $1-2<br>Likely: $-100</h5>
             </div>
         </div>
     </div>
-    <h1 class="text-truncate text-capitalize text-center flex-row flex-grow-1 justify-content-center align-self-center" style="min-height: 55px;margin-top: 50px;">Goal</h1>
+
+
+
+
+    <h1 class="text-truncate text-capitalize text-center flex-row flex-grow-1 justify-content-center align-self-center" style="min-height: 55px;margin-top: 50px;">Get to your Goal</h1>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -43,5 +41,5 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
-</html>
+        
+</asp:Content>
