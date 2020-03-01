@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UpSave {
-    
-    
-    public partial class ExpecAndGoal {
-        
+namespace UpSave
+{
+
+
+    public partial class ExpecAndGoal
+    {
+
         /// <summary>
         /// approx control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace UpSave {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl time_range;
-        
+
         /// <summary>
         /// Months control.
         /// </summary>
@@ -74,6 +76,15 @@ namespace UpSave {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl number;
+
+        /// <summary>
+        /// text_f control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText text_f;
 
         /// <summary>
         /// button control.

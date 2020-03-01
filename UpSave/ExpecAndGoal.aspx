@@ -62,7 +62,8 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="first_name"><strong>How do I save up?</strong></label><input class="form-control-plaintext" type="text" value="Cut entertainment by 80%" readonly=""></div>
+                                        <div class="form-group"><label for="first_name"><strong>How do I save up?</strong></label>
+                                            <input class="form-control-plaintext" type="text" id="text_f" runat="server" value="Cut entertainment by 80%" readonly=""></div>
                                     </div>
                                 </div>
                                 <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" id="button" runat="server" >Calculate</button></div>
@@ -83,4 +84,3 @@
     <script src="assets/js/theme.js"></script>
 </body>
         
-    </html>
